@@ -23,6 +23,7 @@ Metalsmith(__dirname)
 ### Options
 
 See the [webpack configuration][webpack configuration] documentation for details.
+You can pass `true` as a second parameter to turn off logging.
 
 ## Example
 
@@ -36,6 +37,21 @@ Metalsmith(__dirname)
       filename: 'bundle.js'
     }
   }))
+  .build()
+```
+
+*No Logging*
+
+```js
+Metalsmith(__dirname)
+  .use(webpack({
+    context: path.resolve(__dirname, './src/js/'),
+    entry: './index.js',
+    output: {
+      path: '/js',
+      filename: 'bundle.js'
+    }
+  }, true)) // <-- turn off logging
   .build()
 ```
 
