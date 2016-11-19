@@ -16,7 +16,7 @@
   "main": "./lib/",
   "scripts": {
     "style": "./node_modules/.bin/crispy ./lib/ ./test/*.js",
-    "test": "npm run style && ./node_modules/.bin/mocha -r should --reporter spec"
+    "test": "./node_modules/.bin/mocha -r should --reporter spec"
   },
   "dependencies": {
     "enhanced-resolve": "^0.7.6",

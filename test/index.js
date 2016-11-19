@@ -43,4 +43,23 @@ describe('metalsmith-webpack', function () {
             })
     })
 
+    it('should remove logging with second param', function(done) {
+        (new Metalsmith('test/fixtures/complex')
+            .use(webpack({
+                context: path.resolve(__dirname, './fixtures/complex/src/js'),
+                entry: {
+                    a: './index-a',
+                    b: './index-b'
+                },
+                output: {
+                    path: path.resolve(__dirname, './fixtures/complex/build/js'),
+                    filename: '[name]-bundle.js'
+                }
+            }, true)) // <---- remove logging
+            .build(function (err) {
+                done()
+            })
+        )
+    });
+
 })
